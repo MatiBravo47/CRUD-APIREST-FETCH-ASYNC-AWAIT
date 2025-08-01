@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD - APIREST</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css'>
+    <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
+    <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>EMAIL</th>
+                <th>GENERO</th>
+                <th>ACCION</th>
+                <th colspan='2'></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td><input id='name'/></td>
+                <td><input id='lastName'/></td>
+                <td><input id='email'/></td>
+                <td><input id='gender'/></td>
+                <td colspan='2' style='text-align: center'>
+                    <button class="btn btn-add" onclick='saveObject()'>AGREGAR</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div id='popUp'>
+        <table>
+            <tr>
+                <td><label for='id2'>ID</label>
+                </td>
+                <td><input id='id2' name='id2'class="inputPopUp" readonly /></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for='name2' >NOMBRE</label>
+                </td>
+                <td>
+                    <input id='name2' name='name2' class="inputPopUp" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for='lastName2' >APELLIDO</label>
+                </td>
+                <td>
+                    <input id='lastName2' name='lastName2' class="inputPopUp" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for='email2'>EMAIL</label>
+                </td>
+                <td>
+                    <input id='email2' name='email2' class="inputPopUp" />
+                </td>
+            <tr>
+                <tr>
+                    <td>
+                        <label for='gender2'>GENERO</label>
+                    </td>
+                    <td>
+                        <input id='gender2' name='gender2' class="inputPopUp" />
+                    </td>
+                <tr>
+                
+                <td colspan='2' style='text-align: center'>
+                    <button class="btn btn-add" onclick='updateObject()'>ACTUALIZAR</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
