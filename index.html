@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>CRUD - APIREST</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NOMBRE</th>
-                <th>APELLIDO</th>
-                <th>EMAIL</th>
-                <th>GENERO</th>
-                <th>ACCIÓN</th>
-                <th colspan='2'></th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td><input id='name'/></td>
-                <td><input id='lastName'/></td>
-                <td><input id='email'/></td>
-                <td><input id='gender'/></td>
-                <td colspan='2' style='text-align: center'>
-                    <button class="btn btn-add" onclick='saveObject()'>AGREGAR</button>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-
-    <div id='popUp' class="modal">
-        <table>
-            <tr>
-                <td><label for='id2'>ID</label></td>
-                <td><input id='id2' name='id2' class="inputPopUp" readonly /></td>
-            </tr>
-            <tr>
-                <td><label for='name2'>NOMBRE</label></td>
-                <td><input id='name2' name='name2' class="inputPopUp" /></td>
-            </tr>
-            <tr>
-                <td><label for='lastName2'>APELLIDO</label></td>
-                <td><input id='lastName2' name='lastName2' class="inputPopUp" /></td>
-            </tr>
-            <tr>
-                <td><label for='email2'>EMAIL</label></td>
-                <td><input id='email2' name='email2' class="inputPopUp" /></td>
-            </tr>
-            <tr>
-                <td><label for='gender2'>GÉNERO</label></td>
-                <td><input id='gender2' name='gender2' class="inputPopUp" /></td>
-            </tr>
-            <tr>
-                <td colspan='2' style='text-align: center'>
-                    <button class="btn btn-add" onclick='updateObject()'>ACTUALIZAR</button>
-                    <button class="btn" onclick="closeModal()">CERRAR</button>
-                </td>
-            </tr>
+<body class="bg-gray-100 p-6 font-sans">
+    <div class="max-w-6xl mx-auto">
+        <table class="w-full bg-white shadow-md rounded overflow-hidden border border-gray text-sm">
+            <thead class="bg-gray-200 text-gray-700">
+                <tr>
+                    <th class="p-2 border">ID</th>
+                    <th class="p-2 border">NOMBRE</th>
+                    <th class="p-2 border">APELLIDO</th>
+                    <th class="p-2 border">EMAIL</th>
+                    <th class="p-2 border">GENERO</th>
+                    <th class="p-2 border" colspan='2'>ACCION</th>
+                </tr>
+            </thead>
+            <tbody ID="table-body"></tbody>
+            <tfoot>
+                <tr class="bg-gray-50">
+                    <td class="p-2 border"></td>
+                    <td class="p-2 border"><input id='name'/></td>
+                    <td class="p-2 border"><input id='lastName'/></td>
+                    <td class="p-2 border"><input id='email'/></td>
+                    <td class="p-2 border"><input id='gender'/></td>
+                    <td colspan='2' class="p-2 border text-center">
+                        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" id="btnAdd">AGREGAR</button>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
+    </div>
+
+    <div id="popUp" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-6 rounded shadow-md w-full max-w-md text-gray-900">
+            <h2 class="text-xl font-bold mb-4 text-center">Editar Usuario</h2>
+            <div class="space-y-3">
+                <div>
+                    <label for="id2" class="block text-sm font-medium">ID</label>
+                    <input id="id2" name="id2" class="w-full p-2 border rounded bg-gray-100" readonly />
+                </div>
+                <div>
+                    <label for="name2" class="block text-sm font-medium">Nombre</label>
+                    <input id="name2" name="name2" class="w-full p-2 border rounded bg-white" />
+                </div>
+                <div>
+                    <label for="lastName2" class="block text-sm font-medium">Apellido</label>
+                    <input id="lastName2" name="lastName2" class="w-full p-2 border rounded bg-white " />
+                </div>
+                <div>
+                    <label for="email2" class="block text-sm font-medium">Email</label>
+                    <input id="email2" name="email2" class="w-full p-2 border rounded bg-white " />
+                </div>
+                <div>
+                    <label for="gender2" class="block text-sm font-medium">Género</label>
+                    <input id="gender2" name="gender2" class="w-full p-2 border rounded bg-white" />
+                </div>
+                <div class="flex justify-center gap-4 mt-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" id="btnUpdate">ACTUALIZAR</button>
+                    <button class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500" id="btnClose">CERRAR</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="scripts.js"></script>

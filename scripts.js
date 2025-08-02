@@ -1,7 +1,14 @@
-const url = 'https://crudcrud.com/api/850c80492c814c5b8608f0feaf47537e/usuarios';
+const url = 'https://crudcrud.com/api/d27ff5fbd7714f8abb7f7e1086e691bc/usuarios';
+
+// Esperar a que cargue el DOM
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btnAdd').addEventListener('click', saveObject);
+    document.getElementById('btnUpdate').addEventListener('click', updateObject);
+    document.getElementById('btnClose').addEventListener('click', closeModal);
+})
+
 
 window.onload = () => {
-    document.getElementById('popUp').classList.remove('open');
     getObjects();
 };
 
@@ -44,11 +51,12 @@ function viewObject(object) {
     document.getElementsByName('lastName2')[0].value = object.lastName;
     document.getElementsByName('email2')[0].value = object.email;
     document.getElementsByName('gender2')[0].value = object.gender;
-    document.getElementById('popUp').classList.add('open');
+    
+    document.getElementById('popUp').classList.remove('hidden'); // mostrar modal
 }
 
 function closeModal() {
-    document.getElementById('popUp').classList.remove('open');
+    document.getElementById('popUp').classList.add('hidden'); // ocultar modal
 }
 
 function insertTr(object) {
